@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: head"/>
+<body class=" text-light bg-secondary bg-gradient">
+<div class="container rounded bg-dark bg-gradient border border-5 my-5 px-5 py-5 justify-content-center align-content-center">
+    <div class="d-flex justify-content-center">
+        <h1 class="text-info fw-bold display-1">Guess A Number</h1>
+    </div>
+    <div class="d-flex rounded bg-success border border-3 justify-content-center justify-space-between">
+        <button><a href="/roll-dice/1">1</a></button>
+        <button><a href="/roll-dice/2">2</a></button>
+        <button><a href="/roll-dice/3">3</a></button>
+        <button><a href="/roll-dice/4">4</a></button>
+        <button><a href="/roll-dice/5">5</a></button>
+        <button><a href="/roll-dice/6">6</a></button>
+    </div>
+    <h1 class="display-3" th:text="${youGuessed}"></h1><h1 class="text-danger display-1" th:text="${guessedNumber}"></h1>
+    <h2 class="display-3" th:text="${diceRolls}"></h2>
+    <h2 class="display-3" th:text="${correctGuesses}"></h2>
+</div>
+</body>
+</html>
