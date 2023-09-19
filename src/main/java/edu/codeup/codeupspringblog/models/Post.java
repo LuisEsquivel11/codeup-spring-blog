@@ -12,7 +12,7 @@ public class Post {
     private long id;
 
     @Column(length = 100, nullable = false)
-    private long title;
+    private String title;
 
     @Column(columnDefinition = "TEXT")
     private String description;
@@ -20,8 +20,7 @@ public class Post {
     public Post() {
 
     }
-    public Post(long id, long title, String description) {
-        this.id = id;
+    public Post( String title, String description) {
         this.title = title;
         this.description = description;
     }
@@ -34,11 +33,11 @@ public class Post {
         this.id = id;
     }
 
-    public long getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    public void setTitle(long title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
