@@ -2,13 +2,19 @@ package edu.codeup.codeupspringblog.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "posts")
 public class Post {
 
+    @ManyToOne
+    @JoinColumn (name = "user_id")
+    private User user;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(columnDefinition = "int UNSIGNED")
+    @Column(columnDefinition = "long UNSIGNED")
     private long id;
 
     @Column(length = 100, nullable = false)
