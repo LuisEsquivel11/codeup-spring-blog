@@ -9,6 +9,7 @@
 <div th:each="post : ${posts}">
     <h1 th:text="${post.title}"></h1>
     <h2 th:text="${post.description}"></h2>
+    <h2 th:text="${post.user.email}"></h2>
 </div>
 
 

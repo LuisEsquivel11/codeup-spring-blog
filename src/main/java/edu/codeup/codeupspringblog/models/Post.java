@@ -8,13 +8,8 @@ import java.util.List;
 @Table(name = "posts")
 public class Post {
 
-    @ManyToOne
-    @JoinColumn (name = "user_id")
-    private User user;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(columnDefinition = "long UNSIGNED")
     private long id;
 
     @Column(length = 100, nullable = false)
@@ -23,12 +18,23 @@ public class Post {
     @Column(columnDefinition = "TEXT")
     private String description;
 
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public Post() {
 
     }
     public Post( String title, String description) {
         this.title = title;
         this.description = description;
+    }
+
+
+    public Post(String title, String description, User user) {
+        this.title = title;
+        this.description = description;
+        this.user = user;
     }
 
     public long getId() {
@@ -53,5 +59,13 @@ public class Post {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
